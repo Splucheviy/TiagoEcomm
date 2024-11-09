@@ -11,7 +11,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// Hadler ...
+// Handler ...
 type Handler struct {
 	store types.UserStore
 }
