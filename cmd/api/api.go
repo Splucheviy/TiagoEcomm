@@ -9,22 +9,22 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// APIServer...
-type APIServer struct {
+// APIServer ...
+type Server struct {
 	addr string
 	db   *sql.DB
 }
 
 // NewAPIServer ...
-func NewAPIServer(addr string, db *sql.DB) *APIServer {
-	return &APIServer{
+func NewServer(addr string, db *sql.DB) *Server {
+	return &Server{
 		addr: addr,
 		db:   db,
 	}
 }
 
 // Run ...
-func (s *APIServer) Run() error {
+func (s *Server) Run() error {
 	router := mux.NewRouter()
 	subrouter := router.PathPrefix("/api/v1").Subrouter()
 

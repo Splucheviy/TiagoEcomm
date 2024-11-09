@@ -7,9 +7,10 @@ import (
 	"github.com/joho/godotenv"
 )
 
-var Envs = InitConfig() // var for InitConfig
+// Var Envs to InitConfig ...
+var Envs = InitConfig() 
 
-// Config...
+// Config ...
 type Config struct {
 	PublicHost string
 	Port       string
