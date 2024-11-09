@@ -8,9 +8,9 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
-var Validate = validator.New()
+var Validate = validator.New() // var validate
 
-// ParseJSON...
+// ParseJSON ...
 func ParseJSON(r *http.Request, payload any) error {
 	if r.Body == nil {
 		return fmt.Errorf("missing request body")
@@ -20,7 +20,7 @@ func ParseJSON(r *http.Request, payload any) error {
 
 }
 
-// WriteJSON...
+// WriteJSON ...
 func WriteJSON(w http.ResponseWriter, status int, v any) error {
 	w.Header().Add("Content-Type", "application/json")
 	w.WriteHeader(status)
@@ -28,7 +28,7 @@ func WriteJSON(w http.ResponseWriter, status int, v any) error {
 	return json.NewEncoder(w).Encode(v)
 }
 
-// WriteError...
+// WriteError ...
 func WriteError(w http.ResponseWriter, status int, err error) {
 	WriteJSON(w, status, map[string]string{"error": err.Error()})
 }

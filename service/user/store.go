@@ -7,6 +7,7 @@ import (
 	"github.com/Splucheviy/TiagoEcomm/types"
 )
 
+// Store represents ...
 type Store struct {
 	db *sql.DB
 }
@@ -16,7 +17,7 @@ func NewStore(db *sql.DB) *Store {
 	return &Store{db: db}
 }
 
-// GetUserByEmail...
+// GetUserByEmail ...
 func (s *Store) GetUserByEmail(email string) (*types.User, error) {
 	rows, err := s.db.Query("SELECT * FROM users WHERE email = ?", email)
 	if err != nil {
@@ -57,12 +58,12 @@ func scanRowIntoUser(rows *sql.Rows) (*types.User, error) {
 	return user, nil
 }
 
-// GetUserByID...
+// GetUserByID ...
 func (s *Store) GetUserByID(id int) (*types.User, error) {
 	return nil, nil
 }
 
-// CreateUser...
+// CreateUser ...
 func (s *Store) CreateUser(user types.User) error {
 	return nil
 }

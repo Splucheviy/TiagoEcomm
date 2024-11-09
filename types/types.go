@@ -2,6 +2,7 @@ package types
 
 import "time"
 
+// RegisterUserPayload struct ...
 type RegisterUserPayload struct {
 	FirstName string `json:"firstName" validate:"required"`
 	LastName  string `json:"lastName" validate:"required"`
@@ -9,6 +10,7 @@ type RegisterUserPayload struct {
 	Password  string `json:"password" validate:"required,min=3,max=255"`
 }
 
+// User struct ...
 type User struct {
 	ID        int       `json:"id"`
 	FirstName string    `json:"firstName"`
@@ -18,6 +20,7 @@ type User struct {
 	CreatedAt time.Time `json:"createdAt"`
 }
 
+// UserStore interface
 type UserStore interface {
 	GetUserByEmail(email string) (*User, error)
 	GetUserByID(id int) (*User, error)

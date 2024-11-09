@@ -9,6 +9,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// APIServer...
 type APIServer struct {
 	addr string
 	db   *sql.DB
