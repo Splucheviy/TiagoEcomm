@@ -9,13 +9,13 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// APIServer ...
+// Server ...
 type Server struct {
 	addr string
 	db   *sql.DB
 }
 
-// NewAPIServer ...
+// NewServer ...
 func NewServer(addr string, db *sql.DB) *Server {
 	return &Server{
 		addr: addr,
