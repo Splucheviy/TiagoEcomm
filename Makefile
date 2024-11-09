@@ -27,3 +27,7 @@ migrate-up:
 .PHONY: migrate-down
 migrate-down:
 	go run cmd/migrate/main.go down
+
+.PHONY: lint
+lint:
+	golangci-lint run ./..

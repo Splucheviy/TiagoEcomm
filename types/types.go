@@ -2,6 +2,12 @@ package types
 
 import "time"
 
+// LoginUserPayload struct ...
+type LoginUserPayload struct {
+	Email     string `json:"email"  validate:"required,email"`
+	Password  string `json:"password" validate:"required"`
+}
+
 // RegisterUserPayload struct ...
 type RegisterUserPayload struct {
 	FirstName string `json:"firstName" validate:"required"`
