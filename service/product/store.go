@@ -84,19 +84,20 @@ func (s *Store) GetProductsByIDs(productIDs []int) ([]types.Product, error) {
 
 }
 
+// UpdateProduct ...
 func (s *Store) UpdateProduct(product types.Product) error {
 	query := "UPDATE products SET name=?, description=?, image=?, price=?, quantity=? WHERE id=?"
-    _, err := s.db.Exec(query,
-        product.Name,
-        product.Description,
-        product.Image,
-        product.Price,
-        product.Quantity,
-        product.ID,
-    )
-	if err!= nil {
-        return err
-    }
+	_, err := s.db.Exec(query,
+		product.Name,
+		product.Description,
+		product.Image,
+		product.Price,
+		product.Quantity,
+		product.ID,
+	)
+	if err != nil {
+		return err
+	}
 
-    return nil
+	return nil
 }

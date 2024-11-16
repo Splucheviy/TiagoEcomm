@@ -9,7 +9,7 @@ type ProductStore interface {
 	UpdateProduct(Product) error
 }
 
-// CartStore ...
+// OrderStore ...
 type OrderStore interface {
 	CreateOrder(Order) (int, error)
 	CreateOrderItem(OrderItem) error
