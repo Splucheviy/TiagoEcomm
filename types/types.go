@@ -5,6 +5,34 @@ import "time"
 // ProductStore ...
 type ProductStore interface {
 	GetProducts() ([]Product, error)
+	GetProductsByIDs(ps []int) ([]Product, error)
+	UpdateProduct(Product) error
+}
+
+// CartStore ...
+type OrderStore interface {
+	CreateOrder(Order) (int, error)
+	CreateOrderItem(OrderItem) error
+}
+
+// Order ...
+type Order struct {
+	ID        int       `json:"id"`
+	UserID    int       `json:"userId"`
+	Total     float64   `json:"total"`
+	Status    string    `json:"status"`
+	Address   string    `json:"address"`
+	CreatedAt time.Time `json:"createdAt"`
+}
+
+// OrderItem ...
+type OrderItem struct {
+	ID        int       `json:"id"`
+	OrderID   int       `json:"orderId"`
+	ProductID int       `json:"productId"`
+	Quantity  int       `json:"quantity"`
+	Price     float64   `json:"price"`
+	CreatedAt time.Time `json:"createdAt"`
 }
 
 // Product ...
@@ -47,4 +75,15 @@ type UserStore interface {
 	GetUserByEmail(email string) (*User, error)
 	GetUserByID(id int) (*User, error)
 	CreateUser(User) error
+}
+
+// CartItem ...
+type CartItem struct {
+	ProductID int `json:"productID"`
+	Quantity  int `json:"quantity"`
+}
+
+// CartCheckoutPayload ...
+type CartCheckoutPayload struct {
+	Items []CartItem `json:"items" validate:"required"`
 }
