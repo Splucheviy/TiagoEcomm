@@ -16,6 +16,7 @@ import (
 
 type contextKey string
 
+// UserKey ...
 const UserKey contextKey = "userID"
 
 // CreateJWT ...
@@ -103,9 +104,10 @@ func validateToken(tokenString string) (*jwt.Token, error) {
 }
 
 func permissionDenied(w http.ResponseWriter) {
- utils.WriteError(w, http.StatusForbidden, fmt.Errorf("permission denied"))
+	utils.WriteError(w, http.StatusForbidden, fmt.Errorf("permission denied"))
 }
 
+// GetUserIDFromContext ...
 func GetUserIDFromContext(ctx context.Context) int {
 	userID, ok := ctx.Value(UserKey).(int)
 	if !ok {
